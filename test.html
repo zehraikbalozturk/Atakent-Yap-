@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İletişim Formu Test</title>
+</head>
+<body>
+  <h2>Test Formu</h2>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Adınız" required><br>
+    <input type="email" id="email" placeholder="E-posta" required><br>
+    <input type="tel" id="phone" placeholder="Telefon"><br>
+    <textarea id="message" placeholder="Mesajınız" required></textarea><br>
+    <button type="submit">Gönder</button>
+  </form>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqlGOtYndIvU68qx3JuSn3Nyf5Fiowyyk",
+      authDomain: "atakent-yapi-125df.firebaseapp.com",
+      projectId: "atakent-yapi-125df",
+      storageBucket: "atakent-yapi-125df.firebasestorage.app",
+      messagingSenderId: "356561905008",
+      appId: "1:356561905008:web:5be6c0e1d0c1751d319bb5",
+      measurementId: "G-3DLYSLR3QC"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("contact-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const message = document.getElementById("message").value;
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          name,
+          email,
+          phone,
+          message,
+          timestamp: new Date()
+        });
+        alert("Mesaj başarıyla gönderildi!");
+      } catch (error) {
+        console.error("Hata:", error);
+        alert("Hata oluştu: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

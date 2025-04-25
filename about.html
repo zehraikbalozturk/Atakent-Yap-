@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hakkımızda | Atakent İnşaat & Yapı Malzemeleri</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://atakentyapimarket.com/" />
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+ <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<meta name="theme-color" content="#d4af37" />
+</head>
+
+<body> 
+<!-- Logo Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">
+    <img src="images/logo.png" alt="Atakent Yapı" />
+  </div>
+</div>
+
+
+<!-- ÜST BİLGİ (TOP-BAR) -->
+<div class="top-bar bg-dark text-white py-2 small">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <span><i class="fas fa-envelope me-1"></i> atakentyapi16@gmail.com</span>
+      <span><i class="fas fa-phone me-1"></i> +90 (224) 242 47 36</span>
+    </div>
+    <div class="d-flex gap-3 social-icons-top">
+      <a href="https://www.instagram.com/atakentyapi" class="social-icon-top" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/atakentyapi" class="social-icon-top" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://x.com/atakentyapi?s=21&t=FuJ6WDnHdZ-0AvvBUJnQQg" class="social-icon-top" target="_blank" aria-label="Twitter / X">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+    </div>
+    
+    
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+      <img src="images/logo.png" alt="Logo" class="main-logo transition" width="48" height="48" class="me-2" />
+      <!--<img src="images/atakentyapi-text.png" alt="Atakent Yapı" class="main-logo transition" height="36" />-->
+      <span class="brand-text transition">ATAKENT YAPI</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav fw-semibold gap-lg-3 text-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-cente" href="#" data-bs-toggle="dropdown">Kurumsal</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="about.html">Hakkımızda</a></li>
+            <li><a class="dropdown-item" href="message.html">Başkanın Mesajı</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projeler</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- OFFCANVAS Mobil Menü -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menü</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+      <li class="nav-item">
+        <button class="nav-link fw-bold d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#kurumsalAltMenu">
+          Kurumsal <i class="fas fa-chevron-down small"></i>
+        </button>
+        <div class="collapse ps-3" id="kurumsalAltMenu">
+          <a class="nav-link" href="about.html">Hakkımızda</a>
+          <a class="nav-link" href="message.html">Başkanın Mesajı</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="projects.html">Projeler</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- HERO ALANI -->
+<section class="hero-modern d-flex align-items-center justify-content-center text-white text-center"
+         style="height: 50vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('images/store.jpg') center/cover no-repeat;">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Hakkımızda</h1>
+    <p class="lead mt-3">35 Yılı Aşan Tecrübemizle Geleceği Birlikte İnşa Ediyoruz</p>
+  </div>
+</section>
+
+<!-- HAKKIMIZDA KISMI -->
+<section class="py-5 bg-light" data-aos="fade-up">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      
+      <!-- Sol Yazı Alanı -->
+      <div class="col-lg-6" data-aos="fade-up">
+        <h2 class="fw-bold text-dark mb-3">Atakent Yapı Kimdir?</h2>
+        <p class="text-muted">
+          <strong>Atakent İnşaat & Yapı Malzemeleri</strong>, 1990 yılından bu yana yapı sektöründe faaliyet göstermektedir. 
+          Güvenilir tedarik altyapısı ve inşaat projelerinde sunduğu kaliteli çözümlerle sektörde öncü bir konuma sahiptir.
+        </p>
+        <p class="text-muted">
+          Müşteri memnuniyetini öncelik kabul ederek yenilikçi, sürdürülebilir ve sağlam yapılar inşa etmeyi vizyon edinmiştir.
+        </p>
+      </div>
+
+      <!-- Sağ Görsel -->
+      <div class="col-lg-6 text-center" data-aos="fade-up">
+        <img src="images/hakkimizda.jpg" alt="Hakkımızda Görsel" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+ <!-- DEĞERLERİMİZ -->
+<section class="bg-white py-5" data-aos="fade-up">
+  <div class="container">
+    <h3 class="fw-bold text-dark text-center mb-4">Değerlerimiz</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <i class="fas fa-handshake fa-2x text-primary mb-3"></i>
+            <h6 class="fw-semibold">Güvenilirlik</h6>
+            <p class="small text-muted">Söz verdiğimiz gibi hizmet sunarız.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <i class="fas fa-star fa-2x text-warning mb-3"></i>
+            <h6 class="fw-semibold">Kalite</h6>
+            <p class="small text-muted">Her projemizde yüksek kalite standartlarını koruruz.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <i class="fas fa-lightbulb fa-2x text-success mb-3"></i>
+            <h6 class="fw-semibold">Yenilikçilik</h6>
+            <p class="small text-muted">Teknolojiye ve gelişime her zaman açığız.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light text-dark">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold" style="color: #D4AF37;" data-aos="fade-up">Misyonumuz & Vizyonumuz</h2>
+      <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Atakent Yapı’nın değerleri ve geleceğe bakışı</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Vizyon -->
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="card border-0 shadow-sm h-100 hover-card">
+          <div class="card-body">
+            <h4 class="fw-bold mb-3 text-dark"><i class="fas fa-eye me-2 text-gold"></i>Vizyonumuz</h4>
+            <p class="text-muted">
+              Türkiye’nin her köşesinde güvenle anılan, kaliteli projeler üreten bir marka olmak. Teknoloji ve estetiği birleştirerek sadece yapılar değil, yaşam alanları inşa etmek.
+            </p>
+            <ul class="list-unstyled text-muted mt-3">
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>Sürdürülebilir mimari çözümler</li>
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>Modern ve yenilikçi projeler</li>
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>Kaliteden ödün vermeyen yaklaşım</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Misyon -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="card border-0 shadow-sm h-100 hover-card">
+          <div class="card-body">
+            <h4 class="fw-bold mb-3 text-dark"><i class="fas fa-bullseye me-2 text-gold"></i>Misyonumuz</h4>
+            <p class="text-muted">
+              Müşteri odaklı yaklaşımımızla güvenilir, dayanıklı ve ekonomik projeler üretmek. Sektörde sadece malzeme sağlayıcısı değil, çözüm ortağı olarak konumlanmak.
+            </p>
+            <ul class="list-unstyled text-muted mt-3">
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>İnsan ve çevre odaklı yaklaşım</li>
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>Güvenilir ve hızlı hizmet</li>
+              <li><i class="fas fa-check-circle me-2 text-gold"></i>Her aşamada şeffaflık ve dürüstlük</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Galeri Bölümü -->
+<!-- Galeri Başlık -->
+<section class="py-5 bg-white" data-aos="fade-up">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-dark">Fotoğraf Galerisi</h2>
+      <p class="text-muted">Atakent Yapı'ya ait bazı kareler</p>
+    </div>
+
+    <!-- Swiper Slider -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Kart 1 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery1.jpg" data-lightbox="gallery">
+              <img src="images/gallery1.jpg" class="img-fluid gallery-img" alt="Galeri 1">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kart 2 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery2.jpg" data-lightbox="gallery">
+              <img src="images/gallery2.jpg" class="img-fluid gallery-img" alt="Galeri 2">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Kart 3 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery3.jpg" data-lightbox="gallery">
+              <img src="images/gallery3.jpg" class="img-fluid gallery-img" alt="Galeri 2">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kart 4 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery4.jpg" data-lightbox="gallery">
+              <img src="images/gallery4.jpg" class="img-fluid gallery-img" alt="Galeri 4">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kart 5 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery5.jpg" data-lightbox="gallery">
+              <img src="images/gallery5.jpg" class="img-fluid gallery-img" alt="Galeri 5">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kart 6 -->
+        <div class="swiper-slide">
+          <div class="gallery-card position-relative overflow-hidden rounded shadow">
+            <a href="images/gallery6.jpg" data-lightbox="gallery">
+              <img src="images/gallery6.jpg" class="img-fluid gallery-img" alt="Galeri 6">
+              <div class="overlay d-flex align-items-center justify-content-center">
+                <i class="fas fa-search-plus fa-2x text-white"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Diğer kartlar burada devam eder... -->
+
+      </div>
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+  </div>
+</section>
+
+
+  
+ <!-- Lightbox CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<!-- Lightbox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Swiper Init -->
+<script>
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    autoplay: { delay: 4000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: {
+      992: { slidesPerView: 3, spaceBetween: 30 },
+      768: { slidesPerView: 2, spaceBetween: 20 },
+      0: { slidesPerView: 1 }
+    }
+  });
+</script>
+
+
+<footer class="footer-modern text-white py-5" style="background: #111">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Logo ve kısa tanım -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="d-flex align-items-start gap-3">
+          <img src="images/logo.png" alt="Atakent Yapı" width="60">
+          <div>
+            <h5 class="fw-bold mb-2">ATAKENT YAPI</h5>
+            <p class="text-light small mb-0">İnşaat ve yapı malzemelerinde güvenilir çözüm ortağınız.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sayfa Bağlantıları -->
+      <div class="col-md-4">
+        <h6 class="fw-bold mb-3">Hızlı Erişim</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html" class="footer-link">Ana Sayfa</a></li>
+          <li class="mb-2"><a href="about.html" class="footer-link">Hakkımızda</a></li>
+          <li class="mb-2"><a href="projects.html" class="footer-link">Projeler</a></li>
+          <li class="mb-2"><a href="contact.html" class="footer-link">İletişim</a></li>
+          
+        </ul>
+      </div>
+
+    <!-- İletişim Bilgileri -->
+    <div class="col-md-4">
+      <h6 class="fw-bold mb-3">İletişim</h6>
+      <p class="mb-1"><i class="fas fa-phone-alt me-2 text-warning"></i> +90 (224) 242 47 36</p>
+      <p class="mb-3"><i class="fas fa-envelope me-2 text-warning"></i> atakentyapi16@gmail.com</p>
+      <div class="d-flex gap-3">
+        <a href="https://www.instagram.com/atakentyapi" aria-label="Instagram" class="text-light"><i class="fab fa-instagram fa-lg" class="btn btn-gold"></i></a>
+        <a href="https://www.facebook.com/atakentyapi" aria-label="Instagram"class="text-light"><i class="fab fa-facebook-f fa-lg" class="btn btn-gold"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=atakentyapi16@gmail.com" class="text-light" class="btn btn-gold">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
+    </div>
+    </div>
+    <hr class="border-secondary my-4" />
+    <p class="text-center small text-light mb-0">
+    © 2025 Atakent İnşaat & Yapı Malzemeleri | Tüm Hakları Saklıdır.
+    </p>
+
+    </div>
+    </footer>
+
+  <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Lightbox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<!-- Navbar Scroll -->
+<script>
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+
+<!-- Özel JS -->
+<script src="script.js"></script>
+
+
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animasyon süresi
+    once: true      // sadece bir kez çalışsın
+  });
+</script>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 6000); // 0.6sn sonra tamamen yok et
+    }
+  });
+</script>
+
+
+
+
+
+</body>
+</html>

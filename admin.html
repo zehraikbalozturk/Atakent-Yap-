@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel | Atakent Yapı</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f9fa;
+    }
+    .login-section, .message-section {
+      max-width: 600px;
+      margin: 80px auto;
+    }
+    .logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .card-text {
+      white-space: pre-line;
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#d4af37" />
+  
+</head>
+<body>
+
+<!-- Giriş Alanı -->
+<div class="login-section" id="login-section">
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="text-center mb-4">🔐 Admin Giriş</h4>
+      <input type="password" id="admin-password" class="form-control mb-3" placeholder="Şifreyi giriniz" />
+      <button class="btn btn-warning w-100" onclick="checkLogin()">Giriş Yap</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mesaj Listeleme Alanı -->
+<div class="message-section" id="message-section" style="display: none;">
+  <button class="btn btn-danger logout-btn" onclick="logout()">Çıkış Yap</button>
+  <h4 class="text-center mb-4">📩 Gönderilen Mesajlar</h4>
+  <div id="messages-container" class="d-flex flex-column gap-3"></div>
+</div>
+
+<!-- Firebase ve JS -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { 
+    getFirestore, collection, getDocs, query, orderBy, deleteDoc, doc, updateDoc 
+  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCqlGOtYndIvU68qx3JuSn3Nyf5Fiowyyk",
+    authDomain: "atakent-yapi-125df.firebaseapp.com",
+    projectId: "atakent-yapi-125df",
+    storageBucket: "atakent-yapi-125df.firebasestorage.app",
+    messagingSenderId: "356561905008",
+    appId: "1:356561905008:web:5be6c0e1d0c1751d319bb5",
+    measurementId: "G-3DLYSLR3QC"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Giriş Kontrolü
+  window.checkLogin = () => {
+    const password = document.getElementById("admin-password").value;
+    if (password === "atakent2025") {
+      localStorage.setItem("adminLoggedIn", "true");
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("message-section").style.display = "block";
+      fetchMessages();
+      alert("Giriş başarılı, hoş geldiniz İbrahim Bey.");
+    } else {
+      alert("Hatalı şifre girdiniz.");
+    }
+  };
+
+  // Çıkış
+  window.logout = () => {
+    localStorage.removeItem("adminLoggedIn");
+    location.reload();
+  };
+
+  // Sayfa yüklenince otomatik giriş kontrolü
+  window.addEventListener("DOMContentLoaded", () => {
+    const isLoggedIn = localStorage.getItem("adminLoggedIn");
+    if (isLoggedIn === "true") {
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("message-section").style.display = "block";
+      fetchMessages();
+    }
+  });
+
+  // Mesajları Yükle
+  async function fetchMessages() {
+    const messagesRef = collection(db, "messages");
+    const q = query(messagesRef, orderBy("timestamp", "desc"));
+    const querySnapshot = await getDocs(q);
+
+    const container = document.getElementById("messages-container");
+    container.innerHTML = "";
+
+    querySnapshot.forEach(docSnap => {
+      const data = docSnap.data();
+      const id = docSnap.id;
+      const date = data.timestamp?.seconds
+        ? new Date(data.timestamp.seconds * 1000).toLocaleString()
+        : "Tarih Yok";
+
+      const isAnswered = data.status === "yanıtlandı";
+
+      const card = document.createElement("div");
+      card.className = "card shadow-sm border-start border-4 " + (isAnswered ? "border-success" : "border-warning");
+
+      card.innerHTML = `
+        <div class="card-body">
+          <h5 class="card-title text-dark"><i class="fas fa-user me-2"></i>${data.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <i class="fas fa-envelope me-1"></i>${data.email} 
+            <span class="ms-3"><i class="fas fa-phone me-1"></i>${data.phone}</span>
+          </h6>
+          <p class="card-text mt-3">${data.message}</p>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <small class="text-muted"><i class="fas fa-clock me-1"></i>${date}</small>
+            <div class="d-flex gap-2">
+              ${!isAnswered ? `
+                <button class="btn btn-sm btn-outline-success" onclick="markAsAnswered('${id}')">
+                  <i class="fas fa-check"></i> Yanıtlandı
+                </button>` : `
+                <span class="badge bg-success">Yanıtlandı</span>
+              `}
+              <button class="btn btn-sm btn-outline-danger" onclick="deleteMessage('${id}')">
+                <i class="fas fa-trash"></i> Sil
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // Silme fonksiyonu
+  window.deleteMessage = async function (id) {
+    if (!confirm("Bu mesajı silmek istediğinize emin misiniz?")) return;
+
+    try {
+      await deleteDoc(doc(db, "messages", id));
+      alert("Mesaj silindi.");
+      fetchMessages();
+    } catch (err) {
+      console.error("Silme hatası:", err);
+      alert("Mesaj silinemedi: " + err.message);
+    }
+  };
+
+  // Yanıtlandı olarak işaretleme
+  window.markAsAnswered = async function (id) {
+    try {
+      await updateDoc(doc(db, "messages", id), {
+        status: "yanıtlandı"
+      });
+      fetchMessages();
+    } catch (err) {
+      console.error("Güncelleme hatası:", err);
+      alert("Güncellenemedi: " + err.message);
+    }
+  };
+</script>
+
+</body>
+</html>

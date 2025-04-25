@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atakent İnşaat & Yapı Malzemeleri</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+   <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Head içinde -->
+    <script type="module" src="firebase/firebase.js"></script>
+    <script type="module" src="firebase/form-handler.js"></script>
+
+  
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Head kısmına ekle -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<meta name="theme-color" content="#d4af37" />
+
+
+
+
+</head>
+<body>
+<!-- Logo Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">
+    <img src="images/logo.png" alt="Atakent Yapı" />
+  </div>
+</div>
+
+
+
+<!-- ÜST BİLGİ (TOP-BAR) -->
+<div class="top-bar bg-dark text-white py-2 small">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <span><i class="fas fa-envelope me-1"></i> atakentyapi16@gmail.com</span>
+      <span><i class="fas fa-phone me-1"></i> +90 (224) 242 47 36</span>
+    </div>
+    <div class="d-flex gap-3 social-icons-top">
+      <a href="https://www.instagram.com/atakentyapi" class="social-icon-top" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/atakentyapi" class="social-icon-top" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://x.com/atakentyapi?s=21&t=FuJ6WDnHdZ-0AvvBUJnQQg" class="social-icon-top" target="_blank" aria-label="Twitter / X">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+    </div>
+    
+    
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+      <img src="images/logo.png" alt="Logo" class="main-logo transition" width="48" height="48" class="me-2" />
+      <!--<img src="images/atakentyapi-text.png" alt="Atakent Yapı" class="main-logo transition" height="36" />-->
+      <span class="brand-text transition">ATAKENT YAPI</span>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav fw-semibold gap-lg-3 text-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-cente" href="#" data-bs-toggle="dropdown">Kurumsal</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="about.html">Hakkımızda</a></li>
+            <li><a class="dropdown-item" href="message.html">Başkanın Mesajı</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projeler</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- OFFCANVAS Mobil Menü -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menü</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+      <li class="nav-item">
+        <button class="nav-link fw-bold d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#kurumsalAltMenu">
+          Kurumsal <i class="fas fa-chevron-down small"></i>
+        </button>
+        <div class="collapse ps-3" id="kurumsalAltMenu">
+          <a class="nav-link" href="about.html">Hakkımızda</a>
+          <a class="nav-link" href="message.html">Başkanın Mesajı</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="projects.html">Projeler</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- Bootstrap ve FontAwesome -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<body>
+    
+    <!-- İletişim Banner -->
+<section class="contact-hero position-relative text-white d-flex align-items-center justify-content-center"
+         style="height: 400px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/contact-bg.jpg') center/cover no-repeat;">
+  <div class="container text-center" data-aos="fade-down">
+    <h1 class="display-4 fw-bold mb-2">Bizimle İletişime Geçin</h1>
+    <p class="display-4 fw-bold mb-2">Size en kısa sürede dönüş sağlayacağız</p>
+  </div>
+</section>
+
+      
+  
+  
+  <!-- İletişim Bilgi Kartları -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold text-primary">İletişim Bilgilerimiz</h2>
+        <p class="text-muted">Her zaman ulaşabileceğiniz iletişim kanallarımız</p>
+      </div>
+      <div class="row g-4">
+        
+        <!-- Adres -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-card p-4 text-center shadow-sm border-0 bg-white rounded h-100">
+            <div class="mb-3 text-gold fs-2"><i class="fas fa-map-marker-alt"></i></div>
+            <h5 class="fw-bold mb-2">Adres</h5>
+            <p class="mb-0">Işıktepe Mah. Mart Sk. No:1/1B<br>Nilüfer / BURSA</p>
+          </div>
+        </div>
+  
+        <!-- Telefon -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="info-card p-4 text-center shadow-sm border-0 bg-white rounded h-100">
+            <div class="mb-3 text-gold fs-2"><i class="fas fa-phone-alt"></i></div>
+            <h5 class="fw-bold mb-2">Telefon</h5>
+            <p class="mb-0">+90 (224) 242 47 36<br>Hafta içi 08:00 - 19:00</p>
+          </div>
+        </div>
+  
+        <!-- E-Posta -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="info-card p-4 text-center shadow-sm border-0 bg-white rounded h-100">
+            <div class="mb-3 text-gold fs-2"><i class="fas fa-envelope"></i></div>
+            <h5 class="fw-bold mb-2">E-Posta</h5>
+            <p class="mb-0">atakentyapi16@gmail.com<br>7/24 bize ulaşabilirsiniz</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  
+<!-- İletişim Formu -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold text-dark">Bize Ulaşın</h2>
+      <p class="text-muted">Sorularınız, önerileriniz ya da talepleriniz için bizimle iletişime geçin.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form id="contact-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-4">
+            <!-- Ad Soyad -->
+            <div class="col-md-6">
+              <label for="name" class="form-label fw-semibold">
+                <i class="fas fa-user me-2 text-gold"></i>Adınız ve Soyadınız
+              </label>
+              <input type="text" id="name" name="name" class="form-control shadow-sm" required />
+            </div>
+            <!-- E-posta -->
+            <div class="col-md-6">
+              <label for="email" class="form-label fw-semibold">
+                <i class="fas fa-envelope me-2 text-gold"></i>E-posta Adresiniz
+              </label>
+              <input type="email" id="email" name="email" class="form-control shadow-sm" required />
+            </div>
+            <!-- Telefon -->
+            <div class="col-12">
+              <label for="phone" class="form-label fw-semibold">
+                <i class="fas fa-phone me-2 text-gold"></i>Telefon Numaranız <span class="text-muted">(İsteğe bağlı)</span>
+              </label>
+              <input type="tel" id="phone" name="phone" class="form-control shadow-sm" />
+            </div>
+            <!-- Mesaj -->
+            <div class="col-12">
+              <label for="message" class="form-label fw-semibold">
+                <i class="fas fa-comment-dots me-2 text-gold"></i>Mesajınız
+              </label>
+              <textarea id="message" name="message" class="form-control shadow-sm" rows="5" required></textarea>
+            </div>
+          </div>
+
+          <!-- Gönder Butonu -->
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-gold px-5 py-2 rounded-pill fw-semibold shadow-sm">
+              Gönder
+            </button>
+          </div>
+        </form>
+
+        <!-- Başarılı Mesaj -->
+        <div class="mt-4" id="formMessage" style="display: none;" data-aos="fade-up" data-aos-delay="200">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Teşekkür ederiz!</strong> Mesajınız başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+          <script>
+            document.querySelector("form").addEventListener("submit", function (e) {
+              e.preventDefault();
+              document.getElementById("formMessage").style.display = "block";
+              this.reset();
+            });
+          </script>
+          
+          
+<!-- Sosyal Medya Kutusu -->
+<section class="py-5 bg-light">
+  <div class="container text-center" data-aos="fade-up">
+    <h4 class="fw-bold text-dark mb-3">Bizi Sosyal Medyada Takip Edin</h4>
+    <p class="text-muted mb-4">Güncel kampanya ve projelerimizden anında haberdar olun.</p>
+
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-4">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/atakentyapi" target="_blank"
+         class="btn btn-outline-dark d-flex align-items-center gap-2 px-4 rounded-pill shadow-sm hover-card"
+         data-aos="fade-up" data-aos-delay="100">
+        <i class="fab fa-instagram fa-lg text-danger"></i>
+        <span class="fw-semibold">Instagram</span>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/atakentyapi" target="_blank"
+         class="btn btn-outline-dark d-flex align-items-center gap-2 px-4 rounded-pill shadow-sm hover-card"
+         data-aos="fade-up" data-aos-delay="200">
+        <i class="fab fa-facebook-f fa-lg text-primary"></i>
+        <span class="fw-semibold">Facebook</span>
+      </a>
+
+      <!-- X (Twitter) -->
+      <a href="https://x.com/atakentyapi?s=21&t=FuJ6WDnHdZ-0AvvBUJnQQg" target="_blank"
+      class="btn btn-outline-dark d-flex align-items-center gap-2 px-4 rounded-pill shadow-sm hover-card"
+      data-aos="fade-up" data-aos-delay="300">
+      <i class="fab fa-x-twitter fa-lg text-info"></i>
+      <span class="fw-semibold">Twitter</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- HARİTA BÖLÜMÜ -->
+<section class="map-section my-5">
+    <div class="container">
+        <h2 class="fw-bold text-dark text-center mb-4">Bizi Yerimizde Ziyaret Edin</h2>
+
+      <div class="ratio ratio-16x9 rounded shadow">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.1256480198394!2d28.960099575982525!3d40.22850846707369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca14288c4f3b2d%3A0x57b792b0fc293a21!2sMarshall%20-%20Atakent%20Yapi!5e0!3m2!1sen!2str!4v1740567572089!5m2!1sen!2str"
+          allowfullscreen="" loading="lazy" style="border:0;"></iframe>
+      </div>
+    </div>
+  </section>
+  
+  
+  <footer class="footer-modern text-white py-5" style="background: #111">
+    <div class="container">
+      <div class="row g-4">
+  
+        <!-- Logo ve kısa tanım -->
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="d-flex align-items-start gap-3">
+            <img src="images/logo.png" alt="Atakent Yapı" width="60">
+            <div>
+              <h5 class="fw-bold mb-2">ATAKENT YAPI</h5>
+              <p class="text-light small mb-0">İnşaat ve yapı malzemelerinde güvenilir çözüm ortağınız.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Sayfa Bağlantıları -->
+        <div class="col-md-4">
+          <h6 class="fw-bold mb-3">Hızlı Erişim</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="index.html" class="footer-link">Ana Sayfa</a></li>
+            <li class="mb-2"><a href="about.html" class="footer-link">Hakkımızda</a></li>
+            <li class="mb-2"><a href="projects.html" class="footer-link">Projeler</a></li>
+            <li><a href="contact.html" class="footer-link">İletişim</a></li>
+          </ul>
+        </div>
+  
+<!-- İletişim Bilgileri -->
+<div class="col-md-4">
+  <h6 class="fw-bold mb-3">İletişim</h6>
+  <p class="mb-1"><i class="fas fa-phone-alt me-2 text-warning"></i> +90 (224) 242 47 36</p>
+  <p class="mb-3"><i class="fas fa-envelope me-2 text-warning"></i> atakentyapi16@gmail.com</p>
+  <div class="d-flex gap-3">
+    <a href="https://www.instagram.com/atakentyapi" aria-label="Instagram" class="text-light"><i class="fab fa-instagram fa-lg" class="btn btn-gold"></i></a>
+    <a href="https://www.facebook.com/atakentyapi" aria-label="Instagram"class="text-light"><i class="fab fa-facebook-f fa-lg" class="btn btn-gold"></i></a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=atakentyapi16@gmail.com" class="text-light" class="btn btn-gold">
+      <i class="fas fa-envelope fa-lg"></i>
+    </a>
+  </div>
+</div>
+</div>
+<hr class="border-secondary my-4" />
+<p class="text-center small text-light mb-0">
+© 2025 Atakent İnşaat & Yapı Malzemeleri | Tüm Hakları Saklıdır.
+</p>
+
+</div>
+</footer>
+  <!-- SAYFA SONUNA YERLEŞTİR -->
+  <script type="module">
+    // Firebase modüllerini import et
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+  
+    // Firebase konfigürasyonun
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqlGOtYndIvU68qx3JuSn3Nyf5Fiowyyk",
+      authDomain: "atakent-yapi-125df.firebaseapp.com",
+      projectId: "atakent-yapi-125df",
+      storageBucket: "atakent-yapi-125df.firebasestorage.app",
+      messagingSenderId: "356561905008",
+      appId: "1:356561905008:web:5be6c0e1d0c1751d319bb5",
+      measurementId: "G-3DLYSLR3QC"
+    };
+  
+    // Firebase'i başlat ve Firestore referansını al
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    // Form submit event listener
+    document.getElementById("contact-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      // Form verilerini al
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+  
+      try {
+        await addDoc(collection(db, "messages"), {
+          name,
+          email,
+          phone,
+          message,
+          timestamp: new Date()
+        });
+  
+        alert("Mesajınız başarıyla gönderildi!");
+        e.target.reset(); // Formu temizle
+      } catch (err) {
+        console.error("Firestore Hatası:", err);
+        alert("Mesaj gönderilemedi, lütfen tekrar deneyin.");
+      }
+    });
+</script>
+  
+ <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animasyon süresi
+    once: true      // sadece bir kez çalışsın
+  });
+</script>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 6000); // 0.6sn sonra tamamen yok et
+    }
+  });
+</script>
+
+
+</body>
+</html>
